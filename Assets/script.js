@@ -89,9 +89,11 @@ function startQuiz(){
     startBtnEl.setAttribute("style", "visibility: hidden;");
     highScoresEl.setAttribute("style", "visibility: hidden;");
     mainEl.setAttribute("style","visibility: visible;");
-    
-    lastPlayEl.textContent = localStorage.getItem("userInitials") + ": " + localStorage.getItem("scoreTotal");
-
+    if (localStorage.getItem("userInitials")){
+        lastPlayEl.textContent = localStorage.getItem("userInitials") + ": " + localStorage.getItem("scoreTotal");  
+    }else{
+        lastPlayEl.textContent = ""
+    }
     var firstQuestion = questions[0].qa;
     questionEl.textContent = firstQuestion;
 
