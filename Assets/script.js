@@ -89,10 +89,12 @@ function startQuiz(){
     startBtnEl.setAttribute("style", "visibility: hidden;");
     highScoresEl.setAttribute("style", "visibility: hidden;");
     mainEl.setAttribute("style","visibility: visible;");
-    if (localStorage.getItem("userInitials")){
-        lastPlayEl.textContent = localStorage.getItem("userInitials") + ": " + localStorage.getItem("scoreTotal");  
-    }else{
+    console
+    if (localStorage.getItem("userInitials") === null){
         lastPlayEl.textContent = ""
+    }else{
+        lastPlayEl.textContent = localStorage.getItem("userInitials") + ": " + localStorage.getItem("scoreTotal");  
+        
     }
     var firstQuestion = questions[0].qa;
     questionEl.textContent = firstQuestion;
