@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Quiz</title>
+    <link rel="stylesheet" href="./Assets/style.css">
+</head>
+<body>
+    <header>
+        <div class="high-scores">
+           <h1 id="high-score-link">Last Scores: <span id="last-play-span"> </span></h1> 
+        </div>
+        <div class="timer">
+            <h2>Timer: <span id="counter"> </span></h2> 
+        </div>
+    </header>
+    <div class="title">
+        <h3 >How Much Do You Know About The World Quiz</h3>
+        <p>Press the start button to begin the quiz, good luck! </p>
+    </div>
+    <main class="quiz-section">
+        <section class="quiz-wrapper" id="quiz-wrapper"> 
+            <div class="question">
+             <h4 id="question-h4">First question</h4>
+            </div>
+            <div class="answers-screen" id="answers-screen">
+            <button id="btn1" class="btn-item" >ans1</button>
+            <button id="btn2" class="btn-item">ans2</button>
+            <button id="btn3" class="btn-item">ans3</button>
+            <button id="btn4" class="btn-item">ans4</button>
+
+            <span id="right-wrong-span">  </span>
+
+            </div>
+        </section>
+            
+        
+    </main>
+    
+    <footer class="start-quiz-btn">
+        <button id="start-btn">Start</button>
+    </footer>
+
+    <section class="high-score-screen" id="high-score-screen">
+        <h5>HighScores</h5>
+        <form>
+            <p>Your Score is: <span id="score-span"> </span> </p>
+            <p id="user-initials-show"> </p>
+            <div id="input-section">
+            <label for="initials-input">Enter Initials: </label>
+            <input type="text" id="initials-input" >
+            <button id="save-form-btn">Save</button>
+            </div>
+            <button id="reset-btn" style="visibility: hidden;">Reset Game </button>
+        </form>
+        
+
+    </section>
+    
+    <script src="./Assets/script.js"></script>
+</body>
+</html>

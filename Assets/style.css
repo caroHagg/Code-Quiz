@@ -1,0 +1,114 @@
+:root {
+    --gradient :linear-gradient(72deg, rgba(35,75,221,1) 33%, rgba(0,213,255,0.9850533963585434) 77%);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0 ;
+}
+
+header{
+    
+    height: 5vh;
+    display: flex;
+    color:darkblue;
+    
+}
+.high-scores{
+    width: 50%;
+    margin-left: 4%;
+    font-size: 10px;
+
+
+}
+.timer{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    margin-right: 10%;
+    font-size: 15px;
+
+}
+.title{
+    /* gradient from https://cssgradient.io/ */
+    background: var(--gradient);
+    font-size: 35px;
+    text-align: center;
+}
+.title p{
+    font-size: 20px;
+}
+.quiz-wrapper{
+   width:800px;
+   height: 550px;
+   margin-left: 5%;
+   margin-top: 20px;
+  visibility: hidden;
+
+}
+.quiz-section{
+    border: 2px dotted cyan;
+    border-radius: 25px;
+    width: 900px;
+    margin-left: 20%;
+}
+.question{
+    font-size: 25px;
+    text-align: center;
+}
+.answers-screen{
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-item{
+    background-color: gold;
+    color: black;
+    font-size: 20px;
+    height: 15%;
+    width: 50%;
+    margin-top: 20px;
+
+}
+#right-wrong-span{
+    font-size: 35px;
+    width: 600px;
+}
+
+.high-score-screen{
+    position: absolute;
+    top: 250px;
+    left:550px;
+    visibility:hidden;
+    
+}
+.start-quiz-btn {
+    display: flex;
+}
+.start-quiz-btn button{
+    background: var(--gradient);
+    color:indigo;
+    width: 300px;
+    height: 45px;
+    text-align: center;
+    margin-left: 41%;
+    margin-top: 2%;
+    font-size: 25px;
+    border: 2px solid cyan;
+    
+}
+#reset-btn, #save-form-btn{
+    background: var(--gradient);
+    color:indigo;
+    width: 100px;
+    height: 20px;
+}
+
+.high-score-screen h5{
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
