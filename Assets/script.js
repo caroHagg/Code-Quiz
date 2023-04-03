@@ -58,6 +58,7 @@ var btnEl3 = document.getElementById("btn3");
 var btnEl4 = document.getElementById("btn4");
 var btnEl5 = document.getElementById("btn5");
 var buttons = [btnEl1,btnEl2,btnEl3,btnEl4];
+
 var answersScreenEl = document.getElementById("answers-screen")
 var questionEl = document.getElementById("question-h4");
 var counterEl =document.getElementById("counter");
@@ -89,13 +90,16 @@ function startQuiz(){
     startBtnEl.setAttribute("style", "visibility: hidden;");
     highScoresEl.setAttribute("style", "visibility: hidden;");
     mainEl.setAttribute("style","visibility: visible;");
-    console
+
+    //show last score played if available 
     if (localStorage.getItem("userInitials") === null){
         lastPlayEl.textContent = ""
     }else{
         lastPlayEl.textContent = localStorage.getItem("userInitials") + ": " + localStorage.getItem("scoreTotal");  
         
     }
+    //set first question and answers
+
     var firstQuestion = questions[0].qa;
     questionEl.textContent = firstQuestion;
 
@@ -104,48 +108,53 @@ function startQuiz(){
         
     }
 }
-//function to display each section after button clicked
-// flash display correct/wrong answer after clicking
+
+//function to display each section after answers button clicked
+//display correct/wrong answer after clicking
+
 function answerClicked(event){
     if (buttons.includes(event.target)){ 
-         //changedQuestion to catch first item in the questions array
 
+         //changedQuestion to catch first item in the questions array
+         
         if(event.target.textContent === questions[changedQuestion].correct){ 
             changedQuestion++
             scoreItem ++ 
+            rightWrongEl.setAttribute("style", "color:green;")
             rightWrongEl.textContent = "Right!"
             isWrong = false;
         }else{
             isWrong=true;
             changedQuestion++
+            rightWrongEl.setAttribute("style", "color:red;")
             rightWrongEl.textContent = "Wrong!"
             
             
         } 
-        console.log(changedQuestion)
         if (changedQuestion === questions.length){
             lastItem = true;
             changedQuestion=0;      
         }else{
+            
             questionEl.textContent = questions[changedQuestion].qa
             for (i=0;i< buttons.length;i++){
                 buttons[i].textContent = questions[changedQuestion].ans[i];
 
             }   
         }    
-        
+          
     }
     
 }
 
 //create a timer
-//wrong answer substract time from timer
+//wrong answer subtract time from timer
 
 function countdown() {
     var timeLeft = 45;
-    console.log(lastItem)
     var timeInterval = setInterval(function () {
       if (timeLeft > 0) {
+        rightWrongEl.textContent = " "
         if(!isWrong){
             timeLeft--;
         }else{
@@ -173,8 +182,10 @@ function countdown() {
     mainEl.setAttribute("style","visibility: hidden;");
     highScoresEl.setAttribute("style","visibility: visible;");
     inputSectionEl.setAttribute("style","visibility: visible;");
+
     scoreEl.textContent = scoreItem;
     userInit.textContent = "";
+
     saveBtnFormEl.addEventListener("click", displayTotalScores);
   }
 
@@ -194,6 +205,7 @@ function countdown() {
 
     lastPlayEl.textContent = localStorage.getItem("userInitials") + ": " + localStorage.getItem("scoreTotal");
     
+    //reset the game
     var resetBtn = document.getElementById("reset-btn");
     resetBtn.setAttribute("style","visibility:visible;");
     resetBtn.addEventListener("click", function(){
